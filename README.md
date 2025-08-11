@@ -38,3 +38,6 @@ The provided dataset is a simplified sample of historical sales. The primary cha
 * **ML Pipeline:** The quality and structure of your code for training and evaluation.
 * **Model Evaluation & Interpretation:** Your choice of metrics and your ability to extract business insights from the model.
 * **Communication & Reporting:** The clarity of your analysis and the actionability of your recommendations in the README report.
+
+## Disclaimer: Data and Evaluation Criteria
+Please be advised that the datasets utilized in this project are synthetically generated and intended for illustrative purposes only. Furthermore, they have been significantly reduced in terms of sample size and the number of features to streamline the exercise. They do not represent or correspond to any actual business data. The primary objective of this evaluation is to assess the problem-solving methodology and the strategic approach employed, not necessarily the best possible tailored solution for the data.

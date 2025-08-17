@@ -1,6 +1,6 @@
-# 🛒 Product Return Prediction — README Report
+#  Product Return Prediction — README Report
 
-## 🔎 Approach
+##  Approach
 
 My approach to this project was to treat it as if I were working with a real-world e-commerce dataset.  
 

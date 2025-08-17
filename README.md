@@ -109,7 +109,7 @@ I carefully split train/validation/test, avoided leakage in target encoding with
 
 ---
 
-## 🛠 Feature Engineering
+##  Feature Engineering
 
 ### Engineered Features
 - `log_price` → handles skew in raw price.  
@@ -186,10 +186,3 @@ I carefully split train/validation/test, avoided leakage in target encoding with
 
 ---
 
-##  Bottom Line
-This project demonstrates:
-- How to build a **sound ML workflow** end-to-end.  
-- How to evaluate models properly under **class imbalance**.  
-- How to interpret modest results honestly, attributing them to data limitations.  
-
-The results (ROC-AUC ~0.60, PR-AUC ~0.12) are realistic given the dataset, and the **takeaway is the workflow itself** — from EDA to feature design, model benchmarking, thresholding, and business framing.

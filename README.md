@@ -77,7 +77,7 @@ I carefully split train/validation/test, avoided leakage in target encoding with
   - Mon–Thu → ~8–9%  
   - Sat–Sun → ~10–10.5%  
 
- Weekend purchases have higher return rates, possibly impulse-driven.  
+ Weekend purchases have higher return rates, possibly indicating impulsive buys. 
 
 ---
 
@@ -105,7 +105,6 @@ I carefully split train/validation/test, avoided leakage in target encoding with
 | ...        | ...    | ...     | ...         |
 
  Certain products consistently have above-average return rates (>13%).  
- Justifies **OOF target encoding** (`product_return_rate`).  
 
 ---
 
@@ -163,26 +162,25 @@ I carefully split train/validation/test, avoided leakage in target encoding with
 
 ##  Challenges
 
-- **Synthetic dataset**: Labels (`returned`) likely generated with only weak correlations.  
-- **Weak signal-to-noise**: Features have low predictive power.  
-- **Result**: All models plateau around the same ROC-AUC (~0.57–0.60).  
-- **Sanity check**: Train vs Test gap is small → models generalize, but there isn’t much signal to learn.  
+- **Main Challenge**:  
+  - The dataset is **synthetic**, and multivariate correlations are weak.  
+  - As a result, Logistic Regression cannot find strong decision boundaries, and even advanced models are capped around the same level.  
 
+The train-test gap is small, indicating that the model generalizes consistently. Both ROC and PR scores are low, indicating the features don’t carry much signal.  Features may be uninformative or noisy
+
+Or the target label may be close to random (especially common in synthetic data) to see if maybe there are nonlinear relationships that logistic regression can't identify, I also used XGBoost and random Forrest, which  both produced close to exact same results that proves the dataset Features may be uninformative or noisy Or the target label may be close to random
 ---
 
 ##  Key Takeaways
 
-- The **pipeline is correct**:
+- The **pipeline** is involves:
   - Clean feature engineering
   - Proper handling of class imbalance
   - Avoided leakage with OOF encodings
   - Threshold optimization based on F1
   - Interpreted results with PR-AUC and top-k lift  
 
-- The **main limitation is the data**, not the modeling.  
-- Real-world e-commerce datasets would include richer signals:
-  - Product text, seller reliability, shipping delays, customer history.  
+- The **main limitation is the data**
 - With only 7 simplified features and synthetic labels, predictive power is capped.  
 
----
 

@@ -216,7 +216,7 @@ To improve business operations, we can take the following steps:
      - Low-risk orders → standard workflow, less need for intervention.  
    - This ensures resources are allocated efficiently while minimizing unnecessary interventions.  
 
-## ⚙️ How to Run the Code  
+##  How to Run the Code  
 
 The project is organized around a single Jupyter Notebook for reproducibility.  
 

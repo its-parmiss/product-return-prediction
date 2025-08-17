@@ -190,4 +190,51 @@ I carefully split train/validation/test, avoided leakage in target encoding with
 - The **main limitation is the data**
 - With only 7 simplified features and synthetic labels, predictive power is capped.  
 
+To improve business operations, we can take the following steps:  
 
+1. **Monitor High-Risk Products**  
+   - Products with unusually high return rates should be flagged for review.  
+   - Investigate potential **quality issues**, **misleading product descriptions**, or **mismatched customer expectations**.  
+
+2. **Focus on Price-Sensitive Segments**  
+   - Returns are higher among **expensive items** and **first-time buyers**.  
+   - Strategies: provide clearer sizing guides, detailed specifications, or stricter pre-purchase confirmations for costly products.  
+
+3. **Introduce Customer Segmentation**  
+   - Segment customers by purchase history (first-time vs. repeat), spending level, and product category preferences.  
+   - Tailor marketing, promotions, and post-purchase communications to each segment to reduce return likelihood.  
+
+4. **Category-Specific Models**  
+   - Since return behavior differs across categories, consider building **separate predictive models** for each product category.  
+   - For example, clothing may require size-related features, while electronics may depend more on price and warranty details.  
+
+5. **Risk Tiering**  
+   - Develop a **tiered risk scoring system** (e.g., low, medium, high) for orders based on predicted return probability.  
+   - Use tiers to drive **business rules** such as:  
+     - High-risk orders → additional verification, targeted product guidance.  
+     - Medium-risk orders → optional support nudges (e.g., post-purchase tips).  
+     - Low-risk orders → standard workflow, less need for intervention.  
+   - This ensures resources are allocated efficiently while minimizing unnecessary interventions.  
+
+## ⚙️ How to Run the Code  
+
+The project is organized around a single Jupyter Notebook for reproducibility.  
+
+```bash
+# Clone the repository
+git clone https://github.com/your-repo/product-return-prediction.git
+cd product-return-prediction
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch Jupyter and open the main notebook
+jupyter notebook python/notebooks/main.ipynb
+```
+
+Inside `main.ipynb`, you will find:  
+- **EDA section** → dataset exploration, distributions, and target analysis.  
+- **Feature engineering** → log transforms, interaction terms, and target encodings.  
+- **Modeling** → training Logistic Regression, Random Forest, and XGBoost with imbalance handling.  
+- **Evaluation** → metrics (F1, ROC-AUC, PR-AUC, top-k lift).  
+- **Interpretation** → feature importance and key insights.  

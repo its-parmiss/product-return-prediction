@@ -136,7 +136,8 @@ I carefully split train/validation/test, avoided leakage in target encoding with
 - **Capacity View**:
   - Top 5% flagged → Precision = 0.178, Lift = 2.0x  
   - Top 10% flagged → Precision = 0.165, Lift = 1.8x  
-  - Top 15% flagged → Precision = 0.158, Lift = 1.8x  
+  - Top 15% flagged → Precision = 0.158, Lift = 1.8x
+  Train vs Test gap is small, which means the model generalizes consistently. Both ROC and PR scores are low, indicating the features don’t carry much signal.  Features may be uninformative or noisy or maybe there are nonlinear relationships that logistic regression can't identify
 
 ---
 
@@ -156,19 +157,25 @@ I carefully split train/validation/test, avoided leakage in target encoding with
   - PR-AUC: 0.141  
 - **Test Metrics**:
   - ROC-AUC: **0.601**
-  - PR-AUC: **0.127**  
+  - PR-AUC: **0.127**   Did not outperform Logistic Regression → suggests limited signal in data.  
 
 ---
 
-##  Challenges
+## Challenges
 
 - **Main Challenge**:  
   - The dataset is **synthetic**, and multivariate correlations are weak.  
-  - As a result, Logistic Regression cannot find strong decision boundaries, and even advanced models are capped around the same level.  
+  - As a result, Logistic Regression cannot establish strong decision boundaries, and even more complex models (e.g., XGBoost, Random Forest) plateau at a similar performance level.  
 
-The train-test gap is small, indicating that the model generalizes consistently. Both ROC and PR scores are low, indicating the features don’t carry much signal.  Features may be uninformative or noisy
+- **Generalization**:  
+  - The **train–test gap** is small, indicating the models generalize consistently.  
+  - However, both **ROC** and **PR** scores remain low, showing that the features carry little predictive signal.  
 
-Or the target label may be close to random (especially common in synthetic data) to see if maybe there are nonlinear relationships that logistic regression can't identify, I also used XGBoost and random Forrest, which  both produced close to exact same results that proves the dataset Features may be uninformative or noisy Or the target label may be close to random
+- **Possible Causes**:  
+  - Features may be **uninformative or noisy**.  
+  - The **target label** may be close to random, which is common in synthetic datasets.  
+  - Even when testing models that can capture nonlinear relationships (XGBoost, Random Forest), the results remained nearly identical—further supporting the idea that the dataset lacks meaningful structure for prediction.  
+
 ---
 
 ##  Key Takeaways
